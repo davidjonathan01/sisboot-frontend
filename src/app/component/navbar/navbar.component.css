@@ -1,0 +1,37 @@
+/* Cambiar el color de fondo del navbar */
+.bg-navbar {
+    background-color: hsl(147, 35%, 70%) !important; /* Puedes elegir otro color aquí */
+}
+
+/* Estilo para los enlaces dentro del navbar */
+.navbar-nav .nav-item {
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+    padding: 10px 15px;
+    transition: transform 0.3s ease, color 0.3s ease;
+    font-weight: 600; /* Ajustar grosor de la fuente */
+}
+
+/* Efecto al pasar el cursor por encima del enlace */
+.navbar-nav .nav-item:hover {
+    box-shadow: 0 4px 10px hsla(0, 1%, 68%, 0.982); /* Sombra para el cuadro del enlace */
+}
+
+/* Efecto de cambio de color al pasar el cursor por encima */
+.navbar-nav .nav-link:hover {
+    transform: scale(1.1);
+    color: #ffffff; /* Cambia el color del texto a azul */
+}
+
+/* Animación de un pequeño rebote para el nombre "SISBOOT" */
+.navbar-brand {
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: translateX(5px);
+}

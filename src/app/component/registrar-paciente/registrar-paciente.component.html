@@ -1,0 +1,155 @@
+<div class="container">
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+
+
+        <form [formGroup]="personaForm">
+          <div class="form-group row">
+            <h1 class="form-group row">Formulario de Registro del Paciente</h1>
+          </div>
+          <!-- Nombres -->
+          <div class="form-group row">
+            <label for="inputNombres" class="col-sm-3 col-form-label">Nombres:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputNombres" placeholder="Consigne los Nombres"
+                formControlName="nombres" />
+            </div>
+          </div>
+
+          <!-- Apellidos -->
+          <div class="form-group row">
+            <label for="inputApellidos" class="col-sm-3 col-form-label">Apellidos:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="inputApellidos" placeholder="Consigne los Apellidos"
+                formControlName="apellidos" />
+            </div>
+          </div>
+
+          <!-- Género y Documento de Identidad -->
+          <div class="form-group row">
+            <div class="col-sm-5">
+                <label for="id_genero">Género:</label>
+                <div class="form-group row">
+                  <select class="form-control" id="id_genero" formControlName="idGenero" required
+                    title="Seleccione su Género">
+                    <option value="" disabled selected>Seleccione el Género</option>
+                    <option *ngFor="let genero of generos" [value]="genero.idGenero">{{ genero.nombre }}</option>
+                  </select>
+                </div>
+            </div>
+
+            <div class="col-sm-2"></div>
+            
+            <div class="col-sm-5">
+                <label for="inputDocIdentidad" >Documento de Identidad:</label>
+                <div class="form-group row">
+                  <input type="text" class="form-control" id="inputDocIdentidad"
+                    placeholder="Consigne el Documento de Identidad" formControlName="docIdentidad" />
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+              </div>
+          </div>
+
+          <!-- Fecha de Nacimiento -->
+          <div class="form-group row">
+            <label for="inputFNac" class="col-sm-3 col-form-label">Fecha de Nacimiento:</label>
+            <div class="col-sm-9">
+              <input type="date" class="form-control" id="inputFNac" formControlName="fecNacimiento" />
+            </div>
+          </div>
+
+          <!-- Teléfono -->
+          <div class="form-group row">
+            <label for="inputTelefono" class="col-sm-3 col-form-label">Número de Teléfono:</label>
+            <div class="col-sm-9">
+              <input required="" type="text" class="form-control" id="inputTelefono" placeholder="Consigne el Número de Teléfono"
+                formControlName="numTelefono" />
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="form-group row">
+            <label for="inputEmail" class="col-sm-3 col-form-label">Email:</label>
+            <div class="col-sm-9">
+              <input type="email" class="form-control" id="inputEmail" placeholder="Consigne el Email"
+                formControlName="email" />
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            
+          </div>
+
+          <!-- Contraseña -->
+          <div class="form-group row">
+            <label for="inputContrasenia" class="col-sm-3 col-form-label">Contraseña:</label>
+            <div class="col-sm-9">
+              <input type="password" class="form-control" id="inputContrasenia" placeholder="Consigne la Contraseña"
+                formControlName="contrasenia" />
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+          </div>
+
+          <!-- Departamento, provincia y distrito -->
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Departamento:</label>
+          <div class="col-sm-9">
+            <select class="form-control" formControlName="departamento_seleccionado" (change)="onDepartamentoChange()">
+              <option *ngFor="let depto of departamentos_filtrados" [value]="depto">{{ depto }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Provincia:</label>
+          <div class="col-sm-9">
+            <select class="form-control" formControlName="provincia_seleccionada" (change)="onProvinciaChange()">
+              <option *ngFor="let prov of provincias_filtradas" [value]="prov">{{ prov }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-3 col-form-label">Distrito:</label>
+          <div class="col-sm-9">
+            <select class="form-control" formControlName="idUbigeo">
+              <option *ngFor="let dist of distritos_filtrados" [value]="dist.idUbigeo">{{ dist.distrito}}</option>
+            </select>
+          </div>
+        </div>
+
+          <!-- Condición -->
+          <div class="form-group row">
+            <label for="condicion" class="col-sm-3 col-form-label">Condición:</label>
+            <div class="col-sm-9">
+              <select class="form-control" id="condicion" formControlName="idCondicion"(change)="onCondicionChange()">
+                <option *ngFor="let cond of condiciones" [value]="cond.idCondicion">{{cond.nombre}}</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Campo Carrera -->
+          <div class="form-group row">
+            <label for="carrera" class="col-sm-3 col-form-label">Carrera:</label>
+            <div class="col-sm-9">
+              <!-- Mostrar select si la condición es "Alumno" -->
+              <select *ngIf="esAlumno" class="form-control"id="carrera" formControlName="idCarrera">
+                <option value="" disabled selected>Seleccione una carrera</option>
+                <option *ngFor="let carrera of carreras" [value]="carrera.idCarrera">{{ carrera.nombre }}</option>
+              </select>
+
+              <!-- Mostrar input si la condición NO es "Alumno" -->
+              <input
+                *ngIf="!esAlumno" type="text" class="form-control" id="carrera" placeholder="Ingrese la carrera (opcional)" formControlName="idCarrera"
+              />
+            </div>
+          </div>
+
+          <!-- Botón Registrar -->
+        
+            <button type="button" class="btn btn-primary" [disabled]="personaForm.invalid" (click)="registrarPaciente()">Registrar</button>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
