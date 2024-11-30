@@ -10,5 +10,6 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './paciente-dashboard.component.css'
 })
 export class PacienteDashboardComponent {
+  
 
 }

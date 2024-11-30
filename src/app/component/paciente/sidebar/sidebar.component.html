@@ -1,10 +1,46 @@
-<mat-card>
-    <mat-action-list>
-        <div mat-subheader>Menu</div>
-        <button mat-list-item>
-            <mat-icon mat-list-icon>home</mat-icon>Inicio
-        </button> 
-        <button mat-list-item routerLink="/admin/profile"></button>
-    </mat-action-list>
-
-</mat-card>
+<div class="sidebar-container" [class.sidebar-hidden]="!isSidebarVisible">
+  <nav class="sidebar">
+    
+    <!-- Botón para mostrar las opciones en pantallas pequeñas -->
+    <!-- El botón debe estar FUERA del contenedor del sidebar -->
+    <!--<button 
+        class="navbar-toggler"
+        type="button" 
+        aria-label="Toggle navigation" 
+        (click)="toggleSidebar()">
+        <span class="navbar-toggler-icon">☰</span> 
+    </button>-->
+    <ul>
+      <li>
+        <a [routerLink]="'/paciente-dashboard/home'" routerLinkActive="active">
+          <i class="fa fa-home"></i>
+          <span>Inicio</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/paciente-dashboard/profile" routerLinkActive="active">
+          <i class="fa fa-user"></i>
+          <span>Mi Información</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/paciente-dashboard/realizar-test" routerLinkActive="active">
+          <i class="fa fa-calendar"></i>
+          <span>Realizar Test</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/paciente-dashboard/resultados" routerLinkActive="active">
+          <i class="fa fa-file-medical-alt"></i>
+          <span>Resultados</span>
+        </a>
+      </li>
+      <li>
+        <a (click)="logout()" class="logout">
+          <i class="fa fa-sign-out-alt"></i>
+          <span>Cerrar sesión</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

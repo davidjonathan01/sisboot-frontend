@@ -1,0 +1,57 @@
+/* Global */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  
+  .text-primary {
+    color: #007bff;
+  }
+  
+  .text-secondary {
+    color: #6c757d;
+  }
+  
+  .table {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+  }
+  
+  .table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2;
+  }
+  
+  .table-bordered {
+    border: 1px solid #ddd;
+  }
+  
+  hr.my-4 {
+    border-top: 2px solid #ddd;
+    margin: 20px 0;
+  }
+  
+  /* Reponsive Grid */
+  @media (max-width: 768px) {
+    .row {
+      flex-direction: column;
+    }
+  
+    .col-md-6 {
+      width: 100%;
+    }
+  }
+  

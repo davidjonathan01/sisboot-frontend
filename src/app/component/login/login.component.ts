@@ -52,12 +52,14 @@ export class LoginComponent {
           if (response.status === 200) {
             this.authService.setUsuarioId(response.idUsuario); // Almacenar el ID del usuario
             if (response.idRol === 1) { // Administrador
-              this.authService.setPacienteId(response.idAdministrador);
+              this.authService.setAdministradorId(response.idAdministrador);
             } else if (response.idRol === 2) { // Especialista
               this.authService.setEspecialistaId(response.idEspecialista);
             } else if (response.idRol === 3) { // Paciente
-              this.authService.setAdministradorId(response.idPaciente);
+              this.authService.setPacienteId(response.idPaciente);
             }
+
+            this.authService.setPerfil(response.perfil); 
             console.log('Tipo de usuario devuelto:', response.idRol); // Imprimir el tipo de usuario en la consola
             console.log("Autenticado exitosamente")
             console.log(localStorage)

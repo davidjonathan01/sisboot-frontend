@@ -1,0 +1,58 @@
+/* Asegúrate de que la barra lateral tiene un fondo y color */
+.sidebar {
+    background-color: #333; /* Fondo oscuro */
+    color: #fff; /* Color del texto blanco */
+    width: 250px;
+    height: 100vh; /* Asegura que ocupe toda la altura */
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Estilo de los enlaces de la barra lateral */
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Cambiar color de fondo cuando el cursor pasa por encima */
+  .sidebar a:hover {
+    background-color: #575757;
+  }
+  
+  /* Para los iconos */
+  .sidebar i {
+    margin-right: 10px;
+  }
+  
+  /* Cambio de color para las clases de la barra lateral */
+  .sidebar .active {
+    background-color: #4CAF50;
+  }
+  
+  /* Si la barra lateral está "cerrada" (en versión móvil) */
+  .sidebar.close {
+    width: 50px;
+  }
+  
+  /* Para el área de búsqueda, si existe */
+  .search-box {
+    display: flex;
+    padding: 10px;
+    background-color: #444;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  /* Los íconos del modo oscuro y otras opciones al final */
+  .bottom-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  

@@ -81,5 +81,14 @@ export class AuthService {
     return id ? parseInt(id, 10) : null;
   }
 
+  setPerfil(perfil: any) {
+    localStorage.setItem('perfil', JSON.stringify(perfil));
+  }
+  
+  getPerfil(): any {
+    const perfil = localStorage.getItem('perfil');
+    return perfil ? JSON.parse(perfil) : null;
+  }
+
   
 }

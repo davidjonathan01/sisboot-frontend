@@ -1,0 +1,78 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-12 text-center mb-4">
+        <h2 class="display-4 text-primary">Perfil de Paciente</h2>
+        <p class="lead">Información personal y médica</p>
+        <hr class="my-4">
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-6">
+        <h4 class="text-secondary">Datos Personales</h4>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th>Nombre</th>
+              <td>{{ perfil.nombres }} {{ perfil.apellidos }}</td>
+            </tr>
+            <tr>
+              <th>Documento de Identidad</th>
+              <td>{{ perfil.docIdentidad }}</td>
+            </tr>
+            <tr>
+              <th>Fecha de Nacimiento</th>
+              <td>{{ perfil.fecNacimiento }}</td>
+            </tr>
+            <tr>
+              <th>Género</th>
+              <td>{{ perfil.genero.nombre }}</td>
+            </tr>
+            <tr>
+              <th>Teléfono</th>
+              <td>{{ perfil.numTelefono }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <div class="col-md-6">
+        <h4 class="text-secondary">Condición Academica</h4>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th>Condición</th>
+              <td>{{ perfil.condicion.nombre }}</td>
+            </tr>
+            <tr>
+              <th>Carrera</th>
+              <td>{{ perfil.carrera?.nombre || 'No asignada' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="text-secondary">Ubicación</h4>
+        <table class="table table-striped table-bordered">
+          <tbody>
+            <tr>
+              <th>Departamento</th>
+              <td>{{ perfil.ubigeo?.departamento || 'No disponible' }}</td>
+            </tr>
+            <tr>
+              <th>Provincia</th>
+              <td>{{ perfil.ubigeo?.provincia || 'No disponible' }}</td>
+            </tr>
+            <tr>
+              <th>Distrito</th>
+              <td>{{ perfil.ubigeo?.distrito || 'No disponible' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

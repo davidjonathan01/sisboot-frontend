@@ -1,0 +1,47 @@
+<div class="sidebar-container" [class.sidebar-hidden]="!isSidebarVisible">
+    <nav class="sidebar">
+      
+      <!-- Botón para mostrar las opciones en pantallas pequeñas -->
+      <!-- El botón debe estar FUERA del contenedor del sidebar -->
+      <!--<button 
+          class="navbar-toggler"
+          type="button" 
+          aria-label="Toggle navigation" 
+          (click)="toggleSidebar()">
+          <span class="navbar-toggler-icon">☰</span> 
+      </button>-->
+      <ul>
+        <li>
+          <a [routerLink]="'/especialista-dashboard/home'" routerLinkActive="active">
+            <i class="fa fa-home"></i>
+            <span>Inicio</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/especialista-dashboard/profile" routerLinkActive="active">
+            <i class="fa fa-user"></i>
+            <span>Mi Información</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/especialista-dashboard/evaluaciones" routerLinkActive="active">
+            <i class="fa fa-calendar"></i>
+            <span>Revisar Evaluaciones</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/especialista-dashboard/resultados" routerLinkActive="active">
+            <i class="fa fa-file-medical-alt"></i>
+            <span>Resultados</span>
+          </a>
+        </li>
+        <li>
+          <a (click)="logout()" class="logout">
+            <i class="fa fa-sign-out-alt"></i>
+            <span>Cerrar sesión</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  
